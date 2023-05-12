@@ -21,7 +21,7 @@ section {
 }
 
 .error-page {
-    background-color: #cccaca4a;
+    background-color: #e0dfdf4a;
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(234, 234, 235, 0.2);
