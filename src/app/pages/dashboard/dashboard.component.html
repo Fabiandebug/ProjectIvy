@@ -1,1 +1,54 @@
-<app-side-bar></app-side-bar>
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1">Home</h1>
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile
+      *ngFor="let i of [1, 2, 3, 4]"
+      [colspan]="(cardLayout | async)?.miniCard?.cols"
+      [rowspan]="(cardLayout | async)?.miniCard?.rows"
+    >
+      <!-- <app-card></app-card> -->
+    </mat-grid-tile>
+
+    <!--Charts-->
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <!-- <app-bar-chart></app-bar-chart> -->
+      <!-- <app-line-chart></app-line-chart> -->
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <h1>Monthly Revenue chart</h1>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <!-- <h1>Online Sessions by Traffic Source Chart</h1> -->
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.chart?.cols"
+      [rowspan]="(cardLayout | async)?.chart?.rows"
+    >
+      <!-- <h1>Total Sales Trendline Chart</h1> -->
+      <!-- <app-line-chart></app-line-chart> -->
+    </mat-grid-tile>
+
+    <!--Table -->
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.table?.cols"
+      [rowspan]="(cardLayout | async)?.table?.rows"
+      class="table-card"
+    >
+      <app-sales-table></app-sales-table>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
