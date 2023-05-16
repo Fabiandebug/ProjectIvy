@@ -1,7 +1,8 @@
 .chart-container {
-  width: 100%;
+   width: 100%;
    height: 300px;/*  set a fixed height or use relative units */
    padding-top: 30px;
+
 }
 
 canvas {

@@ -1,6 +1,8 @@
 .grid-container {
   margin: 20px;
+  padding-top: 100%;
 }
+
 
 .dashboard-card {
   position: absolute;
@@ -36,12 +38,30 @@ mat-card {
   flex-direction: column;
 }
 
-/* Bar Graph css */
-app-bar-chart{
-  flex: 1;
+
+.Raderchart {
+  flex-basis: 100%;
+  margin-right: 0;
+
+
 }
 
-/* Line chart Css */
-app-line-chart{
-  flex: 1;
+.DoughnutChart {
+  flex-basis: 100%;
+  margin-left: 0;
+
+}
+
+.chart1,
+.chart2 {
+  flex-basis: 100%;
+
+}
+
+.chart1 {
+  margin-right: 0;
+}
+
+.chart2 {
+  margin-left: 0;
 }

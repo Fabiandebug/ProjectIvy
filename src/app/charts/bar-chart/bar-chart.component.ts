@@ -11,7 +11,7 @@ export class BarChartComponent {
 
   createChart(){
 
-    this.chart = new Chart("MyChart", {
+    this.chart = new Chart("BarChart", {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
@@ -33,7 +33,11 @@ export class BarChartComponent {
         ]
       },
       options: {
-        aspectRatio:1.8
+        aspectRatio:1.3,
+        animation:{
+          duration: 2000, // Animation duration in milliseconds
+          easing: 'easeInOutQuad' // Animation easing function
+        }
       }
 
     });

@@ -16,30 +16,36 @@
       [colspan]="(cardLayout | async)?.chart?.cols"
       [rowspan]="(cardLayout | async)?.chart?.rows"
     >
-      <!-- <app-bar-chart></app-bar-chart> -->
-      <!-- <app-line-chart></app-line-chart> -->
+      <div class="DoughnutChart">
+        <app-doughnut-chart></app-doughnut-chart>
+      </div>
     </mat-grid-tile>
 
     <mat-grid-tile
       [colspan]="(cardLayout | async)?.chart?.cols"
       [rowspan]="(cardLayout | async)?.chart?.rows"
     >
-      <h1>Monthly Revenue chart</h1>
+      <div class="Raderchart">
+        <app-radar-chart></app-radar-chart>
+      </div>
     </mat-grid-tile>
 
     <mat-grid-tile
       [colspan]="(cardLayout | async)?.chart?.cols"
       [rowspan]="(cardLayout | async)?.chart?.rows"
     >
-      <!-- <h1>Online Sessions by Traffic Source Chart</h1> -->
+      <div class="chart1">
+        <app-line-chart></app-line-chart>
+      </div>
     </mat-grid-tile>
 
     <mat-grid-tile
       [colspan]="(cardLayout | async)?.chart?.cols"
       [rowspan]="(cardLayout | async)?.chart?.rows"
     >
-      <!-- <h1>Total Sales Trendline Chart</h1> -->
-      <!-- <app-line-chart></app-line-chart> -->
+      <div class="chart2">
+        <app-bar-chart></app-bar-chart>
+      </div>
     </mat-grid-tile>
 
     <!--Table -->

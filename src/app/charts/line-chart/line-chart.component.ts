@@ -34,7 +34,11 @@ export class LineChartComponent {
           ]
         },
         options: {
-          aspectRatio:1.8
+          aspectRatio:1.3,
+          animation:{
+            duration: 2000, // Animation duration in milliseconds
+            easing: 'easeInOutQuad' // Animation easing function
+          }
         }
 
       });
