@@ -15,7 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatDividerModule } from '@angular/material/divider';
-import { NgChartsModule } from 'ng2-charts';
+
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -61,7 +61,6 @@ import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.c
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    NgChartsModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
