@@ -1,10 +1,11 @@
 .grid-container {
   margin: 20px;
-  padding-top: 100%;
+  /* padding-top: 106%; */
 }
 
 
 .dashboard-card {
+
   position: absolute;
   top: 15px;
   left: 15px;
@@ -26,11 +27,13 @@
 .table-card {
   display: flex;
   flex-direction: column;
+
 }
 
 
 app-sales-table {
   flex: 1;
+
 }
 
 mat-card {
@@ -64,4 +67,61 @@ mat-card {
 
 .chart2 {
   margin-left: 0;
+}
+
+
+/* Cards Styling */
+.online-users-card,
+.Revenue-card,
+.customer-card,
+.Average-sales-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.online-users-card:hover,
+.Revenue-card:hover,
+.customer-card:hover,
+.Average-sales-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card mat-card-header mat-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align span to the right side */
+}
+
+.dashboard-card mat-card-header mat-card-title span {
+  color: #2c2c2c; /* Dark grey color */
+}
+
+.dashboard-card mat-card-header mat-card-title mat-icon {
+  color: #a0c8e0; /* Faint blue color */
+}
+
+.online-users-card .online-users-count,
+.Revenue-card .total-revenue-count,
+.customer-card .total-revenue-count,
+.Average-sales-card .average-sales {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.online-users-card .online-users-label,
+.Revenue-card .total-revenue-label {
+  font-size: 14px;
+  color: #2c2c2c;
+}
+
+.grid-container {
+  /* overflow-y: scroll; */
+  max-height: 90vh;
+}
+
+.scrollable-grid {
+  overflow: auto;
 }

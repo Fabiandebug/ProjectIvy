@@ -21,7 +21,6 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { CardComponent } from './layouts/card/card.component';
 
 
 import { MatTableModule } from '@angular/material/table';
@@ -46,7 +45,7 @@ import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.c
     PagesError404Component,
     DashboardComponent,
     SideBarComponent,
-    CardComponent,
+
     SalesTableComponent,
     BarChartComponent,
     LineChartComponent,

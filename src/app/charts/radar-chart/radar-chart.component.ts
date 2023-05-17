@@ -17,12 +17,12 @@ createChart() {
       datasets: [
         {
           label: "Sales",
-          data: [467, 576, 572, 79, 92, 574],
+          data: [267, 176, 72, 79, 92, 74],
           backgroundColor: 'blue'
         },
         {
           label: "Profit",
-          data: [542, 542, 536, 327, 17, 538],
+          data: [142, 242, 136, 127, 117, 138],
           backgroundColor: 'limegreen'
         }
       ]
