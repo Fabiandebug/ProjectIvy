@@ -7,7 +7,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { SideBarComponent } from './layouts/side-bar/side-bar.component'
 
-
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -21,7 +20,6 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
