@@ -1,0 +1,28 @@
+.mat-elevation-z8 {
+  width: 100%;
+  overflow: auto;
+}
+
+.full-width-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.mat-header-row,
+.mat-row {
+  display: table-row;
+}
+
+.mat-cell,
+.mat-header-cell {
+  display: table-cell;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.grid-container {
+  max-height: 90vh;
+  overflow: auto;
+}

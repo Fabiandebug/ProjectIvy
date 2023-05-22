@@ -1,0 +1,75 @@
+<div class="grid-container">
+  <br />
+  <h1>My Bills</h1>
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      class="full-width-table"
+      matSort
+      aria-label="Elements"
+      [dataSource]="dataSource"
+    >
+      <!-- Id Column -->
+      <ng-container matColumnDef="bill_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{ row.bill_id }}</td>
+      </ng-container>
+
+      <!-- Table No Column -->
+      <ng-container matColumnDef="table_no">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Table No</th>
+        <td mat-cell *matCellDef="let row">{{ row.table_no }}</td>
+      </ng-container>
+
+      <!-- Bill Amount Column -->
+      <ng-container matColumnDef="bill_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Bill Amount</th>
+        <td mat-cell *matCellDef="let row">{{ row.bill_amount }}</td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let row">{{ row.date | date }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          [style.color]="row.status === 'Paid' ? 'green' : 'red'"
+        >
+          {{ row.status }}
+        </td>
+      </ng-container>
+
+      <!-- View Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="viewBill(row.bill_id)"
+          >
+            View
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page"
+    ></mat-paginator>
+  </div>
+</div>
