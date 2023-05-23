@@ -33,6 +33,7 @@ import { WaitersComponent } from './table/waiters/waiters.component';
 import { ResTablesComponent } from './table/res-tables/res-tables.component';
 import { BillsComponent } from './table/bills/bills.component';
 import { CustomersComponent } from './table/customers/customers.component';
+import { CustomerFormComponent } from './forms/customer-form/customer-form.component';
 
 
 
@@ -56,7 +57,8 @@ import { CustomersComponent } from './table/customers/customers.component';
     WaitersComponent,
     ResTablesComponent,
     BillsComponent,
-    CustomersComponent ,
+    CustomersComponent,
+    CustomerFormComponent ,
 
 
   ],

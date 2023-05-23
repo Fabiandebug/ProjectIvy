@@ -1,11 +1,11 @@
 .grid-container {
   margin: 20px;
-  /* padding-top: 106%; */
+
 }
 
 
-.dashboard-card {
 
+.dashboard-card {
   position: absolute;
   top: 15px;
   left: 15px;

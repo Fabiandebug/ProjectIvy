@@ -9,10 +9,16 @@
         <td mat-cell *matCellDef="let row">{{ row.customer_id }}</td>
       </ng-container>
 
-      <!-- Name Column -->
+      <!-- FName Column -->
       <ng-container matColumnDef="FName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
         <td mat-cell *matCellDef="let row">{{ row.FName }}</td>
+      </ng-container>
+
+      <!-- SName Column -->
+      <ng-container matColumnDef="SName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Second Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.SName }}</td>
       </ng-container>
 
       <!-- Frequency Column -->
