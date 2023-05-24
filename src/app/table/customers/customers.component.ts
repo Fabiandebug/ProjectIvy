@@ -1,15 +1,22 @@
-import { ParseSourceFile } from '@angular/compiler';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { CustomerFormComponent } from 'src/app/forms/customer-form/customer-form.component';
+import { CustomerService } from 'src/app/services/customer-service/customer.service';
+import { interval } from 'rxjs';
+import { SnackBarService } from 'src/app/services/snackbar-service/snack-bar.service';
 
- export interface Customer {
+export interface Customer {
   customer_id: number;
-  FName: string;
-  SName:string;
-  Frequency: number;
-  TotalSpend: number;
+  firstName: string;
+  secondName: string;
+  gender: string;
+  dateOfBirth: Date;
+  email: string;
+  frequency: number;
+  totalSpend: number;
 }
 
 @Component({
@@ -17,61 +24,54 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-export class CustomersComponent implements AfterViewInit {
+export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Customer>;
-   dataSource: MatTableDataSource<Customer>;
 
+  dataSource!: MatTableDataSource<Customer>;
 
-   constructor() {
-    const data: Customer[] = [
-      { customer_id: 1, FName: 'John', SName: 'Kamau',Frequency: 1, TotalSpend: 500.00 },
-      { customer_id: 2, FName: 'Alice' , SName: 'Kamau', Frequency: 2, TotalSpend: 250.50 },
-      { customer_id: 3, FName: 'Michael' , SName: 'Kamau', Frequency: 1, TotalSpend: 700.00 },
-      { customer_id: 4, FName: 'Sarah' , SName: 'Kamau', Frequency: 2, TotalSpend: 150.25 },
-      { customer_id: 5, FName: 'David' , SName: 'Kamau', Frequency: 1, TotalSpend: 900.50 },
-      { customer_id: 6, FName: 'Emily' , SName: 'Kamau', Frequency: 1, TotalSpend: 400.75 },
-      { customer_id: 7, FName: 'James' , SName: 'Kamau', Frequency: 2, TotalSpend: 300.00 },
-      { customer_id: 8, FName: 'Olivia' , SName: 'Kamau', Frequency: 1, TotalSpend: 650.00 },
-      { customer_id: 9, FName: 'Daniel' , SName: 'Kamau', Frequency: 1, TotalSpend: 750.25 },
-      { customer_id: 10, FName: 'Sophia' , SName: 'Kamau', Frequency: 2, TotalSpend: 200.50 },
-      { customer_id: 11, FName: 'Matthew' , SName: 'Kamau', Frequency: 1, TotalSpend: 850.00 },
-      { customer_id: 12, FName: 'Isabella' , SName: 'Kamau', Frequency: 1, TotalSpend: 550.75 },
-      { customer_id: 13, FName: 'Andrew' , SName: 'Kamau', Frequency: 2, TotalSpend: 100.00 },
-      { customer_id: 14, FName: 'Ava' , SName: 'Kamau', Frequency: 1, TotalSpend: 300.50 },
-      { customer_id: 15, FName: 'Benjamin' , SName: 'Kamau', Frequency: 1, TotalSpend: 950.00 },
-      { customer_id: 16, FName: 'Mia' , SName: 'Kamau', Frequency: 2, TotalSpend: 180.25 },
-      { customer_id: 17, FName: 'Christopher' , SName: 'Kamau', Frequency: 1, TotalSpend: 600.50 },
-      { customer_id: 18, FName: 'Ella' , SName: 'Kamau', Frequency: 1, TotalSpend: 350.75 },
-      { customer_id: 19, FName: 'Jackson' , SName: 'Kamau', Frequency: 2, TotalSpend: 250.00 },
-      { customer_id: 20, FName: 'Amelia' , SName: 'Kamau', Frequency: 1, TotalSpend: 700.00 },
-      { customer_id: 21, FName: 'Henry' , SName: 'Kamau', Frequency: 1, TotalSpend: 450.75 },
-      { customer_id: 22, FName: 'Charlotte' , SName: 'Kamau', Frequency: 2, TotalSpend: 150.50 },
-      { customer_id: 23, FName: 'Sebastian' , SName: 'Kamau', Frequency: 1, TotalSpend: 800.00 },
-      { customer_id: 24, FName: 'Grace' , SName: 'Kamau', Frequency: 1, TotalSpend: 500.75 },
-      { customer_id: 25, FName: 'Aiden' , SName: 'Kamau', Frequency: 2, TotalSpend: 120.00 },
-      { customer_id: 26, FName: 'Lily' , SName: 'Kamau', Frequency: 1, TotalSpend: 250.50 },
-      { customer_id: 27, FName: 'Daniel' , SName: 'Kamau', Frequency: 1, TotalSpend: 950.25 },
-      { customer_id: 28, FName: 'Zoe' , SName: 'Kamau', Frequency: 2, TotalSpend: 220.50 },
-      { customer_id: 29, FName: 'David' , SName: 'Kamau', Frequency: 1, TotalSpend: 750.00 },
-      { customer_id: 30, FName: 'Victoria' , SName: 'Kamau', Frequency: 1, TotalSpend:4000},
+  constructor(private _dialog: MatDialog,
+     private _customerService: CustomerService,
+     private _snackBarService: SnackBarService
+     ) {}
 
-  ];
-  this.dataSource = new MatTableDataSource(data);
-}
+  displayedColumns: string[] = ['customer_id', 'firstName', 'secondName', 'gender', 'dateOfBirth', 'email', 'frequency', 'totalSpend', 'actions'];
 
-  displayedColumns: string[] = ['customer_id', 'FName','SName', 'Frequency', 'TotalSpend','actions'];
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+  ngOnInit(): void {
+    this.getCustomerList();
+    interval(1000).subscribe(() => {
+      this.getCustomerList();
+    });
   }
 
-
-  viewCustomer(customer_id:number):void{
-    alert("Cusomer Selected")
+  getCustomerList(): void {
+    this._customerService.getCustomerList().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.table.dataSource = this.dataSource;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
+  deleteCustomer(id:number){
+    this._customerService.deleteCustomer(id).subscribe({
+      next:(res)=>{
+        this._snackBarService.openSnackBar('Customer Deleted Succesfully','done')
+      },
+      error(err) {
+        console.log(err);
+      },
 
+    })
+  }
+  openEditForm(data:any){
+    this._dialog.open(CustomerFormComponent,{
+      data,
+    });
+  }
 }

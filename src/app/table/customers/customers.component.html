@@ -5,44 +5,62 @@
     <table mat-table class="full-width-table" matSort aria-label="Elements">
       <!-- Id Column -->
       <ng-container matColumnDef="customer_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-        <td mat-cell *matCellDef="let row">{{ row.customer_id }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Id</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
       </ng-container>
 
       <!-- FName Column -->
-      <ng-container matColumnDef="FName">
+      <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
-        <td mat-cell *matCellDef="let row">{{ row.FName }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
       </ng-container>
 
       <!-- SName Column -->
-      <ng-container matColumnDef="SName">
+      <ng-container matColumnDef="secondName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Second Name</th>
-        <td mat-cell *matCellDef="let row">{{ row.SName }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.secondName }}</td>
+      </ng-container>
+      <!-- SName Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Second Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.gender }}</td>
       </ng-container>
 
+      <!-- SName Column -->
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DOB</th>
+        <td mat-cell *matCellDef="let row">{{ row.dateOfBirth | date }}</td>
+      </ng-container>
+
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
       <!-- Frequency Column -->
-      <ng-container matColumnDef="Frequency">
+      <ng-container matColumnDef="frequency">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Frequency</th>
-        <td mat-cell *matCellDef="let row">{{ row.Frequency }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.frequency }}</td>
       </ng-container>
 
       <!-- Total Spend Column -->
-      <ng-container matColumnDef="TotalSpend">
+      <ng-container matColumnDef="totalSpend">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Spend</th>
-        <td mat-cell *matCellDef="let row">{{ row.TotalSpend }}</td>
+        <td mat-cell *matCellDef="let row">
+          {{ row.totalSpend | currency : "KES" }}
+        </td>
       </ng-container>
 
       <!-- View Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef></th>
+        <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let row">
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="viewCustomer(row.customer_id)"
-          >
-            View
+          <button mat-icon-button color="primary" (click)="openEditForm(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <span></span>
+          <button mat-icon-button color="warn" (click)="deleteCustomer(row.id)">
+            <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>

@@ -1,0 +1,121 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "customers": [
+    {
+      "id": 1,
+      "firstName": "sbfhbs",
+      "secondName": "dkjdjksdsdn",
+      "gender": "female",
+      "email": "sdjkbsjhdb@gmail.com",
+      "dateOfBirth": "2023-05-22T21:00:00.000Z",
+      "frequency": -2,
+      "totalSpend": 8978009
+    },
+    {
+      "id": 2,
+      "firstName": "Alice",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "female",
+      "frequency": 2,
+      "totalSpend": 250.5
+    },
+    {
+      "id": 3,
+      "firstName": "Michael",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "male",
+      "frequency": 1,
+      "totalSpend": 700
+    },
+    {
+      "id": 4,
+      "firstName": "Sarah",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "female",
+      "frequency": 2,
+      "totalSpend": 150.25
+    },
+    {
+      "id": 5,
+      "firstName": "David",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "male",
+      "frequency": 1,
+      "totalSpend": 900.5
+    },
+    {
+      "id": 6,
+      "firstName": "Emily",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "female",
+      "frequency": 1,
+      "totalSpend": 400.75
+    },
+    {
+      "id": 7,
+      "firstName": "James",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "male",
+      "frequency": 2,
+      "totalSpend": 300
+    },
+    {
+      "id": 8,
+      "firstName": "Olivia",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "female",
+      "frequency": 1,
+      "totalSpend": 650
+    },
+    {
+      "id": 9,
+      "firstName": "Daniel",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "male",
+      "frequency": 1,
+      "totalSpend": 750.25
+    },
+    {
+      "id": 11,
+      "firstName": "Matthew",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "male",
+      "frequency": 1,
+      "totalSpend": 850
+    },
+    {
+      "id": 12,
+      "firstName": "Isabella",
+      "secondName": "Kamau",
+      "email": "example@gmail.com",
+      "gender": "female",
+      "frequency": 1,
+      "totalSpend": 550.75
+    }
+  ]
+}
