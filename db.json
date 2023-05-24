@@ -103,8 +103,9 @@
       "id": 11,
       "firstName": "Matthew",
       "secondName": "Kamau",
-      "email": "example@gmail.com",
       "gender": "male",
+      "email": "example@gmail.com",
+      "dateOfBirth": "2023-05-23T21:00:00.000Z",
       "frequency": 1,
       "totalSpend": 850
     },
