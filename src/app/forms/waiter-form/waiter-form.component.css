@@ -1,0 +1,35 @@
+.content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row0 {
+    display: flex;
+
+
+  }
+
+  .row1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto;
+    padding-left: 10px;
+  }
+
+  .actions{
+    padding:0px 25px 20px;
+  }
+   button{
+      flex: 1;
+    }
+
+  mat-form-field{
+    width: 100%;
+  }

@@ -44,6 +44,10 @@ import { CustomersComponent } from './table/customers/customers.component';
 import { CustomerFormComponent } from './forms/customer-form/customer-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WaiterFormComponent } from './forms/waiter-form/waiter-form.component';
+import { TablesFormComponent } from './forms/tables-form/tables-form.component';
+import { BillsFormComponent } from './forms/bills-form/bills-form.component';
+import { BillItemsComponent } from './table/bills/bill-items/bill-items.component';
 
 
 
@@ -70,7 +74,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ResTablesComponent,
     BillsComponent,
     CustomersComponent,
-    CustomerFormComponent ,
+    CustomerFormComponent,
+    WaiterFormComponent,
+    TablesFormComponent,
+    BillsFormComponent,
+    BillItemsComponent ,
 
 
   ],

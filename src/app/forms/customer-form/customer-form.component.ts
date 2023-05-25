@@ -1,7 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CustomerService } from 'src/app/services/customer-service/customer.service';
 import { DialogRef } from '@angular/cdk/dialog';

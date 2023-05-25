@@ -118,5 +118,75 @@
       "frequency": 1,
       "totalSpend": 550.75
     }
+  ],
+  "waiters": [
+    {
+      "id": 1,
+      "firstName": "Isabellaaaa",
+      "secondName": "Kamau",
+      "gender": "female",
+      "phoneNumber": 254711909223,
+      "idnumber": 12345678,
+      "dateOfBirth": "2023-05-22T21:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "firstName": "JJ",
+      "secondName": "ZZ",
+      "gender": "male",
+      "phoneNumber": 2547112344262,
+      "idnumber": 6522,
+      "dateOfBirth": "2023-05-24T21:00:00.000Z"
+    }
+  ],
+  "tables": [
+    {
+      "id": 11,
+      "tableName": "chui",
+      "description": "15pax",
+      "tableNo": 13,
+      "date": "2023-05-24T21:00:00.000Z"
+    }
+  ],
+  "bills": [
+    {
+      "id": 134,
+      "customerId": 1,
+      "tableNumber": 1,
+      "billAmount": 6786,
+      "date": "2023-01-01",
+      "status": "Paid"
+    },
+    {
+      "id": 1134,
+      "customerId": 1,
+      "tableNumber": 1,
+      "billAmount": 6786,
+      "date": "2023-01-01",
+      "status": "Paid",
+      "billItems": [
+        {
+          "itemId": 1,
+          "name": "Item 1",
+          "quantity": 2,
+          "price": 10,
+          "total": 20
+        },
+        {
+          "itemId": 2,
+          "name": "Item 2",
+          "quantity": 1,
+          "price": 15,
+          "total": 15
+        },
+        {
+          "itemId": 3,
+          "name": "Item 3",
+          "quantity": 3,
+          "price": 8,
+          "total": 24
+        }
+      ]
+    }
   ]
 }

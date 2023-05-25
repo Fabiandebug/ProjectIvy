@@ -1,15 +1,21 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit,ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { ResTablesDataSource,  } from './res-tables-datasource';
+import { TablesService } from 'src/app/services/tables-service/tables.service';
+import { SnackBarService } from 'src/app/services/snackbar-service/snack-bar.service';
+import { MatDialog } from '@angular/material/dialog';
+import { interval } from 'rxjs';
+import { TablesFormComponent } from 'src/app/forms/tables-form/tables-form.component';
+
 
 
 export interface ResTablesItem{
   id:number,
-  table_name:string,
+  tableName:string,
   description:string,
-  table_no:number,
+  tableNo:number,
+  date:Date,
 }
 
 @Component({
@@ -17,99 +23,60 @@ export interface ResTablesItem{
   templateUrl: './res-tables.component.html',
   styleUrls: ['./res-tables.component.css']
 })
-export class ResTablesComponent implements AfterViewInit {
+export class ResTablesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<ResTablesItem>;
-  dataSource: MatTableDataSource<ResTablesItem>;
+  dataSource!: MatTableDataSource<ResTablesItem>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'table_name','description','table_no','actions'];
+  displayedColumns = ['id', 'tableName','description','tableNo','date','actions'];
 
-  constructor() {
-    const data :ResTablesItem[]=[
-      { id: 1, table_name: 'chui', description: '15 pack', table_no: 1 },
-  { id: 2, table_name: 'table2', description: 'description2', table_no: 2 },
-  { id: 3, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 4, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 243, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 66, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 6666, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 553, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 53, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 33, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 23, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id:13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 83, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 43, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 1, table_name: 'chui', description: '15 pack', table_no: 1 },
-  { id: 2, table_name: 'table2', description: 'description2', table_no: 2 },
-  { id: 3, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 4, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 243, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 66, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 6666, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 553, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 53, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 33, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 23, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id:13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 83, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 43, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 1, table_name: 'chui', description: '15 pack', table_no: 1 },
-  { id: 2, table_name: 'table2', description: 'description2', table_no: 2 },
-  { id: 3, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 4, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 243, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 66, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 6666, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 553, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 53, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 33, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 23, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id:13, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 93, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 83, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 63, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 43, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 1, table_name: 'chui', description: '15 pack', table_no: 1 },
-  { id: 2, table_name: 'table2', description: 'description2', table_no: 2 },
-  { id: 3, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 4, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 243, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 43, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 23, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 36, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 355, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 4, table_name: 'table3', description: 'description3', table_no: 3 },
-  { id: 28, table_name: 'table28', description: 'description28', table_no: 28 },
-  { id: 29, table_name: 'table29', description: 'description29', table_no: 29 },
-  { id: 30, table_name: 'table30', description: 'description30', table_no: 30 }
-    ];
-    this.dataSource = new MatTableDataSource(data);
+
+  constructor(
+    private _dialog: MatDialog,
+    private _tableService: TablesService,
+    private _snackBarService: SnackBarService
+  ) {}
+
+
+  ngOnInit(): void {
+    this.getTableList();
+    interval(1000).subscribe(() => {
+      this.getTableList();
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+  getTableList(): void {
+    this._tableService.getTableList().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+        this.table.dataSource = this.dataSource;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
+  deleteTable(id:number){
+    this._tableService.deleteTable(id).subscribe({
+      next:(res)=>{
+        this._snackBarService.openSnackBar('Table Deleted Succesfully','done')
+      },
+      error(err) {
+        console.log(err);
+      },
 
-  viewTable(id:number):void{
-    alert("Table Selected")
+    })
+  }
+  openEditForm(data:any){
+    this._dialog.open(TablesFormComponent,{
+      data,
+    });
+  }
+  addTable():void{
+    this._dialog.open(TablesFormComponent)
   }
 }
-

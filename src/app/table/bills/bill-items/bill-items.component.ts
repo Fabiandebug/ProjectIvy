@@ -8,8 +8,6 @@ import { interval } from 'rxjs';
 import { SnackBarService } from 'src/app/services/snackbar-service/snack-bar.service';
 import { MatDialog } from '@angular/material/dialog';
 
-
-
 export interface BillsItem {
   billId:number,
   customerId:number;
@@ -19,12 +17,13 @@ export interface BillsItem {
   status:string,
 }
 
+
 @Component({
-  selector: 'app-bills',
-  templateUrl: './bills.component.html',
-  styleUrls: ['./bills.component.css']
+  selector: 'app-bill-items',
+  templateUrl: './bill-items.component.html',
+  styleUrls: ['./bill-items.component.css']
 })
-export class BillsComponent implements OnInit {
+export class BillItemsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<BillsItem>;
@@ -60,7 +59,7 @@ export class BillsComponent implements OnInit {
         }
       });
     }
-    deleteBill(id:number){
+    deleteBillItem(id:number){
       this._billService.deleteBill(id).subscribe({
         next:(res)=>{
           this._snackBarService.openSnackBar('Bill Deleted Succesfully','done')
@@ -77,5 +76,8 @@ export class BillsComponent implements OnInit {
       });
     }
 
+
+}
+ {
 
 }

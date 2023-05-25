@@ -1,0 +1,56 @@
+<div mat-dialog-title>
+  <h1>Bills Form</h1>
+  <mat-icon>receipt</mat-icon>
+</div>
+<form [formGroup]="billsForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row0">
+      <div class="row1">
+        <mat-form-field appearance="outline">
+          <mat-label>Bill Id</mat-label>
+          <input matInput type="text" formControlName="id" readonly />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Customer Id</mat-label>
+          <input matInput type="text" formControlName="customerId" readonly />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Table Number</mat-label>
+          <input matInput type="text" formControlName="tableNumber" readonly />
+        </mat-form-field>
+      </div>
+
+      <div class="row2">
+        <mat-form-field appearance="outline">
+          <mat-label>Bill Amount</mat-label>
+          <input matInput type="number" formControlName="billAmount" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Bill Date</mat-label>
+          <input matInput type="date" formControlName="date" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <input matInput type="text" formControlName="status" readonly />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <app-bill-items></app-bill-items>
+  <div mat-dialog-actions class="actions">
+    <button mat-raised-button color="warn" type="submit">Void Bill</button>
+    <button
+      mat-raised-button
+      type="button"
+      style="background-color: green; color: white"
+    >
+      Change Waiter
+    </button>
+    <button mat-raised-button type="button" color="primary">Merge Bill</button>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<div mat-dialog-title>
+  <h1>Tables Form</h1>
+  <mat-icon>local_dining</mat-icon>
+</div>
+<form [formGroup]="tableForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row0">
+      <div class="row1">
+        <mat-form-field appearance="outline">
+          <mat-label>Id</mat-label>
+          <input matInput type="text" formControlName="id" readonly />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Table Name</mat-label>
+          <input matInput type="text" formControlName="tableName" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Table Number</mat-label>
+          <input matInput type="text" formControlName="tableNo" />
+        </mat-form-field>
+      </div>
+
+      <div class="row2">
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Capacity"
+            formControlName="description"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="actions">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ data ? "Update" : "Save" }}
+    </button>
+  </div>
+</form>
