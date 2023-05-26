@@ -10,15 +10,15 @@ export class WaiterService {
   constructor(private _http: HttpClient) { }
 
   addWaiter(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/waiters',data);
+    return this._http.post('https://test-api-6am6.onrender.com/waiters',data);
   }
   getWaiterList():Observable<any>{
-    return this._http.get('http://localhost:3000/waiters');
+    return this._http.get('https://test-api-6am6.onrender.com/waiters');
   }
   deleteWaiter(id:number):Observable<any>{
-    return this._http.delete(`http://localhost:3000/waiters/${id}`)
+    return this._http.delete(`https://test-api-6am6.onrender.com/waiters/${id}`)
   }
   updateWaiter(id:number,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/waiters/${id}`,data);
+    return this._http.put(`https://test-api-6am6.onrender.com/waiters/${id}`,data);
   }
 }

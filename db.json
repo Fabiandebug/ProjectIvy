@@ -155,7 +155,30 @@
       "tableNumber": 1,
       "billAmount": 6786,
       "date": "2023-01-01",
-      "status": "Paid"
+      "status": "Paid",
+      "billItems": [
+        {
+          "id": 1,
+          "name": "Item 1",
+          "quantity": 2,
+          "price": 10,
+          "total": 20
+        },
+        {
+          "id": 2,
+          "name": "Item 2",
+          "quantity": 1,
+          "price": 15,
+          "total": 15
+        },
+        {
+          "id": 3,
+          "name": "Item 3",
+          "quantity": 3,
+          "price": 8,
+          "total": 24
+        }
+      ]
     },
     {
       "id": 1134,
@@ -166,21 +189,21 @@
       "status": "Paid",
       "billItems": [
         {
-          "itemId": 1,
+          "id": 7,
           "name": "Item 1",
           "quantity": 2,
           "price": 10,
           "total": 20
         },
         {
-          "itemId": 2,
+          "id": 8,
           "name": "Item 2",
           "quantity": 1,
           "price": 15,
           "total": 15
         },
         {
-          "itemId": 3,
+          "id": 9,
           "name": "Item 3",
           "quantity": 3,
           "price": 8,

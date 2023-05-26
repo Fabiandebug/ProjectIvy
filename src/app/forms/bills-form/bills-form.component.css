@@ -1,18 +1,20 @@
 .content {
   display: flex;
   flex-direction: column;
+
 }
 
 .row0 {
   display: flex;
-
-
+  max-width: 50%;
+  width: 50%;
 }
 
 .row1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
 }
 
 .row2 {
@@ -33,3 +35,5 @@
 mat-form-field{
   width: 100%;
 }
+
+

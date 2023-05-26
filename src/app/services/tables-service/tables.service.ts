@@ -10,15 +10,15 @@ export class TablesService {
   constructor(private _http: HttpClient) { }
 
   addTable(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/tables',data);
+    return this._http.post('https://test-api-6am6.onrender.com/tables',data);
   }
   getTableList():Observable<any>{
-    return this._http.get('http://localhost:3000/tables');
+    return this._http.get('https://test-api-6am6.onrender.com/tables');
   }
   deleteTable(id:number):Observable<any>{
-    return this._http.delete(`http://localhost:3000/tables/${id}`)
+    return this._http.delete(`https://test-api-6am6.onrender.com/tables/${id}`)
   }
   updateTable(id:number,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/tables/${id}`,data);
+    return this._http.put(`https://test-api-6am6.onrender.com/tables/${id}`,data);
   }
 }

@@ -10,16 +10,16 @@ export class CustomerService {
   constructor(private _http: HttpClient) { }
 
   addCustomer(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/customers',data);
+    return this._http.post('https://test-api-6am6.onrender.com/customers',data);
   }
   getCustomerList():Observable<any>{
-    return this._http.get('http://localhost:3000/customers');
+    return this._http.get('https://test-api-6am6.onrender.com/customers');
   }
   deleteCustomer(id:number):Observable<any>{
-    return this._http.delete(`http://localhost:3000/customers/${id}`)
+    return this._http.delete(`https://test-api-6am6.onrender.com/customers/${id}`)
   }
   updateCustomer(id:number,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/customers/${id}`,data);
+    return this._http.put(`https://test-api-6am6.onrender.com/customers/${id}`,data);
   }
 
 }

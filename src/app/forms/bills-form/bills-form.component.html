@@ -37,8 +37,9 @@
         </mat-form-field>
       </div>
     </div>
+    <app-bill-items [billId]="billsForm.value.id"></app-bill-items>
   </div>
-  <app-bill-items></app-bill-items>
+  <br />
   <div mat-dialog-actions class="actions">
     <button mat-raised-button color="warn" type="submit">Void Bill</button>
     <button
